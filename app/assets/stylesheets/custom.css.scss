@@ -7,7 +7,7 @@ body {
 }
 
 .navbar-default {
-  background-color: #EFEFEB;
+  background-color: WhiteSmoke;
 }
 
 .navbar-default .navbar-brand {
@@ -60,4 +60,9 @@ body {
 
 .product{
   background-color:  #EFEFEB;
+}
+
+.hov:hover{
+  background-color: WhiteSmoke;
+  border: 3px solid black;
 }
