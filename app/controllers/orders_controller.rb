@@ -30,13 +30,15 @@ class OrdersController < ApplicationController
 
   # POST /orders
   # POST /orders.json
-  def create
+
+    def create
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
-    @order.buyer_id = current_user.id
-    @order.listing_id = @listing.id
-    @order.seller_id = @seller.id
+    @seller = @listing.user
 
+    @order.listing_id = @listing.id
+    @order.buyer_id = current_user.id
+    @order.seller_id = @seller.id
 
     respond_to do |format|
       if @order.save
@@ -55,7 +57,7 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1
   # DELETE /orders/1.json
-  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
